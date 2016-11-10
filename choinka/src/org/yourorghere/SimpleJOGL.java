@@ -235,6 +235,23 @@ gl.glVertex3f(x, y, 0.0f);
 gl.glEnd();
 }
 
+public void choinka(GL gl){
+    gl.glPushMatrix();
+        gl.glColor3f(0.6f,0.16f,0.16f);
+        walec(gl);
+        gl.glTranslatef(0.0f, 0.0f, -1.0f);
+        //gl.glScalef(1.0f, 1.0f, 1.0f);
+        gl.glColor3f(0.0f,1.0f,0.0f);
+        stozek(gl);
+        gl.glTranslatef(0.0f, 0.0f, -1.0f);
+        gl.glScalef(0.7f, 0.7f, 0.5f);
+        gl.glColor3f(0.0f,1.0f,0.0f);
+        stozek(gl);
+        gl.glTranslatef(0.0f, 0.0f, -1.3f);
+        gl.glScalef(0.7f, 0.7f, 0.5f);
+        stozek(gl);
+        gl.glPopMatrix();
+    }
 
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL();
@@ -252,21 +269,21 @@ gl.glEnd();
         gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó? osi Y
         //Tu piszemy kod tworz?cy obiekty 3D
         // Flush all drawing operations to the graphics card
-        //gl.glScalef(1.0f, 1.0f, 1.5f);
-        //stozek(gl);
-        gl.glColor3f(0.6f,0.16f,0.16f);
-        walec(gl);
-        gl.glTranslatef(0.0f, 0.0f, -1.0f);
-        //gl.glScalef(1.0f, 1.0f, 1.0f);
-        gl.glColor3f(0.0f,1.0f,0.0f);
-        stozek(gl);
-        gl.glTranslatef(0.0f, 0.0f, -1.0f);
-        gl.glScalef(0.7f, 0.7f, 0.5f);
-        gl.glColor3f(0.0f,1.0f,0.0f);
-        stozek(gl);
-        gl.glTranslatef(0.0f, 0.0f, -1.3f);
-        gl.glScalef(0.7f, 0.7f, 0.5f);
-        stozek(gl);
+        
+        
+        for(int i=0; i<5;i++){
+        choinka(gl);
+        gl.glTranslatef(3.0f, 0.0f, 0.0f);
+        }
+        
+        gl.glTranslatef(0.0f, 3.0f, 0.0f);
+        for(int i=0; i<5;i++){
+        gl.glTranslatef(-3.0f, 0.0f, 0.0f);    
+        choinka(gl);
+        }
+        
+        
+        
             gl.glFlush();
 
 
